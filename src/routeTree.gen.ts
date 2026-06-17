@@ -18,6 +18,16 @@ import { Route as VendorIndexRouteImport } from './routes/vendor.index'
 import { Route as SchoolIndexRouteImport } from './routes/school.index'
 import { Route as ParentIndexRouteImport } from './routes/parent.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as SchoolYearsRouteImport } from './routes/school.years'
+import { Route as SchoolUniformsRouteImport } from './routes/school.uniforms'
+import { Route as SchoolStatusRouteImport } from './routes/school.status'
+import { Route as SchoolStationeryRouteImport } from './routes/school.stationery'
+import { Route as SchoolRequirementsRouteImport } from './routes/school.requirements'
+import { Route as SchoolPublicationsRouteImport } from './routes/school.publications'
+import { Route as SchoolProfileRouteImport } from './routes/school.profile'
+import { Route as SchoolNotifyRouteImport } from './routes/school.notify'
+import { Route as SchoolClassesRouteImport } from './routes/school.classes'
+import { Route as SchoolBooklistsRouteImport } from './routes/school.booklists'
 import { Route as ParentWishlistRouteImport } from './routes/parent.wishlist'
 import { Route as ParentSchoolsRouteImport } from './routes/parent.schools'
 import { Route as ParentProductsRouteImport } from './routes/parent.products'
@@ -76,6 +86,56 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => AdminRoute,
+} as any)
+const SchoolYearsRoute = SchoolYearsRouteImport.update({
+  id: '/years',
+  path: '/years',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolUniformsRoute = SchoolUniformsRouteImport.update({
+  id: '/uniforms',
+  path: '/uniforms',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolStatusRoute = SchoolStatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolStationeryRoute = SchoolStationeryRouteImport.update({
+  id: '/stationery',
+  path: '/stationery',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolRequirementsRoute = SchoolRequirementsRouteImport.update({
+  id: '/requirements',
+  path: '/requirements',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolPublicationsRoute = SchoolPublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolProfileRoute = SchoolProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolNotifyRoute = SchoolNotifyRouteImport.update({
+  id: '/notify',
+  path: '/notify',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolClassesRoute = SchoolClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolBooklistsRoute = SchoolBooklistsRouteImport.update({
+  id: '/booklists',
+  path: '/booklists',
+  getParentRoute: () => SchoolRoute,
 } as any)
 const ParentWishlistRoute = ParentWishlistRouteImport.update({
   id: '/wishlist',
@@ -162,6 +222,16 @@ export interface FileRoutesByFullPath {
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
   '/admin/': typeof AdminIndexRoute
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
@@ -182,6 +252,16 @@ export interface FileRoutesByTo {
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
   '/admin': typeof AdminIndexRoute
   '/parent': typeof ParentIndexRoute
   '/school': typeof SchoolIndexRoute
@@ -207,6 +287,16 @@ export interface FileRoutesById {
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
   '/admin/': typeof AdminIndexRoute
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
@@ -233,6 +323,16 @@ export interface FileRouteTypes {
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
     | '/admin/'
     | '/parent/'
     | '/school/'
@@ -253,6 +353,16 @@ export interface FileRouteTypes {
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
     | '/admin'
     | '/parent'
     | '/school'
@@ -277,6 +387,16 @@ export interface FileRouteTypes {
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
     | '/admin/'
     | '/parent/'
     | '/school/'
@@ -355,6 +475,76 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
+    }
+    '/school/years': {
+      id: '/school/years'
+      path: '/years'
+      fullPath: '/school/years'
+      preLoaderRoute: typeof SchoolYearsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/uniforms': {
+      id: '/school/uniforms'
+      path: '/uniforms'
+      fullPath: '/school/uniforms'
+      preLoaderRoute: typeof SchoolUniformsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/status': {
+      id: '/school/status'
+      path: '/status'
+      fullPath: '/school/status'
+      preLoaderRoute: typeof SchoolStatusRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/stationery': {
+      id: '/school/stationery'
+      path: '/stationery'
+      fullPath: '/school/stationery'
+      preLoaderRoute: typeof SchoolStationeryRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/requirements': {
+      id: '/school/requirements'
+      path: '/requirements'
+      fullPath: '/school/requirements'
+      preLoaderRoute: typeof SchoolRequirementsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/publications': {
+      id: '/school/publications'
+      path: '/publications'
+      fullPath: '/school/publications'
+      preLoaderRoute: typeof SchoolPublicationsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/profile': {
+      id: '/school/profile'
+      path: '/profile'
+      fullPath: '/school/profile'
+      preLoaderRoute: typeof SchoolProfileRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/notify': {
+      id: '/school/notify'
+      path: '/notify'
+      fullPath: '/school/notify'
+      preLoaderRoute: typeof SchoolNotifyRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/classes': {
+      id: '/school/classes'
+      path: '/classes'
+      fullPath: '/school/classes'
+      preLoaderRoute: typeof SchoolClassesRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/booklists': {
+      id: '/school/booklists'
+      path: '/booklists'
+      fullPath: '/school/booklists'
+      preLoaderRoute: typeof SchoolBooklistsRouteImport
+      parentRoute: typeof SchoolRoute
     }
     '/parent/wishlist': {
       id: '/parent/wishlist'
@@ -498,10 +688,30 @@ const ParentRouteWithChildren =
   ParentRoute._addFileChildren(ParentRouteChildren)
 
 interface SchoolRouteChildren {
+  SchoolBooklistsRoute: typeof SchoolBooklistsRoute
+  SchoolClassesRoute: typeof SchoolClassesRoute
+  SchoolNotifyRoute: typeof SchoolNotifyRoute
+  SchoolProfileRoute: typeof SchoolProfileRoute
+  SchoolPublicationsRoute: typeof SchoolPublicationsRoute
+  SchoolRequirementsRoute: typeof SchoolRequirementsRoute
+  SchoolStationeryRoute: typeof SchoolStationeryRoute
+  SchoolStatusRoute: typeof SchoolStatusRoute
+  SchoolUniformsRoute: typeof SchoolUniformsRoute
+  SchoolYearsRoute: typeof SchoolYearsRoute
   SchoolIndexRoute: typeof SchoolIndexRoute
 }
 
 const SchoolRouteChildren: SchoolRouteChildren = {
+  SchoolBooklistsRoute: SchoolBooklistsRoute,
+  SchoolClassesRoute: SchoolClassesRoute,
+  SchoolNotifyRoute: SchoolNotifyRoute,
+  SchoolProfileRoute: SchoolProfileRoute,
+  SchoolPublicationsRoute: SchoolPublicationsRoute,
+  SchoolRequirementsRoute: SchoolRequirementsRoute,
+  SchoolStationeryRoute: SchoolStationeryRoute,
+  SchoolStatusRoute: SchoolStatusRoute,
+  SchoolUniformsRoute: SchoolUniformsRoute,
+  SchoolYearsRoute: SchoolYearsRoute,
   SchoolIndexRoute: SchoolIndexRoute,
 }
 
