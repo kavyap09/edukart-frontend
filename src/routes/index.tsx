@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   School,
   Users,
@@ -53,9 +53,17 @@ function Landing() {
 }
 
 /* NAV */
+const NAV_LINKS: Array<{ label: string; to?: string; href?: string }> = [
+  { label: "Home", href: "#home" },
+  { label: "Parents", to: "/parent" },
+  { label: "Schools", to: "/school" },
+  { label: "Vendors", to: "/vendor" },
+  { label: "Admin", to: "/admin" },
+  { label: "About", href: "#about" },
+];
+
 function Nav() {
   const [open, setOpen] = useState(false);
-  const links = ["Home", "Schools", "Vendors", "About", "Contact"];
   return (
     <header className="sticky top-0 z-50 w-full px-4 sm:px-6">
       <div className="mx-auto mt-4 flex max-w-7xl items-center justify-between gap-4 rounded-full px-4 py-3 glass-card sm:px-6">
@@ -63,16 +71,22 @@ function Nav() {
           <Logo />
           <span className="font-display text-xl font-bold text-foreground">EduKart</span>
         </a>
-        <nav className="hidden items-center gap-7 md:flex">
-          {links.map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground">
-              {l}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-6 md:flex">
+          {NAV_LINKS.map((l) =>
+            l.to ? (
+              <Link key={l.label} to={l.to} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground">
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.label} href={l.href} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground">
+                {l.label}
+              </a>
+            ),
+          )}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
-          <button className="rounded-full px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted">Login</button>
-          <button className="rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition-transform hover:scale-105">Sign up</button>
+          <Link to="/parent" className="rounded-full px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted">Login</Link>
+          <Link to="/parent" className="rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition-transform hover:scale-105">Open Dashboard</Link>
         </div>
         <button onClick={() => setOpen(!open)} aria-label="Menu" className="rounded-full p-2 md:hidden">
           <Menu className="h-5 w-5" />
@@ -81,9 +95,18 @@ function Nav() {
       {open && (
         <div className="mx-auto mt-2 max-w-7xl rounded-3xl px-4 py-4 glass-card md:hidden">
           <div className="flex flex-col gap-1">
-            {[...links, "Login"].map((l) => (
-              <a key={l} href={`#${l.toLowerCase()}`} className="rounded-xl px-3 py-2 text-sm font-semibold hover:bg-muted">{l}</a>
-            ))}
+            {NAV_LINKS.map((l) =>
+              l.to ? (
+                <Link key={l.label} to={l.to} onClick={() => setOpen(false)} className="rounded-xl px-3 py-2 text-sm font-semibold hover:bg-muted">
+                  {l.label}
+                </Link>
+              ) : (
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-2 text-sm font-semibold hover:bg-muted">
+                  {l.label}
+                </a>
+              ),
+            )}
+            <Link to="/parent" onClick={() => setOpen(false)} className="rounded-xl bg-foreground px-3 py-2 text-sm font-semibold text-background">Open Dashboard</Link>
           </div>
         </div>
       )}
