@@ -9,38 +9,714 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VendorRouteImport } from './routes/vendor'
+import { Route as SchoolRouteImport } from './routes/school'
+import { Route as ParentRouteImport } from './routes/parent'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VendorIndexRouteImport } from './routes/vendor.index'
+import { Route as SchoolIndexRouteImport } from './routes/school.index'
+import { Route as ParentIndexRouteImport } from './routes/parent.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as VendorStoreRouteImport } from './routes/vendor.store'
+import { Route as VendorReviewsRouteImport } from './routes/vendor.reviews'
+import { Route as VendorRevenueRouteImport } from './routes/vendor.revenue'
+import { Route as VendorProductsRouteImport } from './routes/vendor.products'
+import { Route as VendorPayoutsRouteImport } from './routes/vendor.payouts'
+import { Route as VendorOrdersRouteImport } from './routes/vendor.orders'
+import { Route as VendorOnboardingRouteImport } from './routes/vendor.onboarding'
+import { Route as VendorInvoicesRouteImport } from './routes/vendor.invoices'
+import { Route as VendorInventoryRouteImport } from './routes/vendor.inventory'
+import { Route as VendorGstRouteImport } from './routes/vendor.gst'
+import { Route as VendorBankRouteImport } from './routes/vendor.bank'
+import { Route as VendorAlertsRouteImport } from './routes/vendor.alerts'
+import { Route as SchoolYearsRouteImport } from './routes/school.years'
+import { Route as SchoolUniformsRouteImport } from './routes/school.uniforms'
+import { Route as SchoolStatusRouteImport } from './routes/school.status'
+import { Route as SchoolStationeryRouteImport } from './routes/school.stationery'
+import { Route as SchoolRequirementsRouteImport } from './routes/school.requirements'
+import { Route as SchoolPublicationsRouteImport } from './routes/school.publications'
+import { Route as SchoolProfileRouteImport } from './routes/school.profile'
+import { Route as SchoolNotifyRouteImport } from './routes/school.notify'
+import { Route as SchoolClassesRouteImport } from './routes/school.classes'
+import { Route as SchoolBooklistsRouteImport } from './routes/school.booklists'
+import { Route as ParentWishlistRouteImport } from './routes/parent.wishlist'
+import { Route as ParentSchoolsRouteImport } from './routes/parent.schools'
+import { Route as ParentProductsRouteImport } from './routes/parent.products'
+import { Route as ParentOrdersRouteImport } from './routes/parent.orders'
+import { Route as ParentNotificationsRouteImport } from './routes/parent.notifications'
+import { Route as ParentKitRouteImport } from './routes/parent.kit'
+import { Route as ParentInvoicesRouteImport } from './routes/parent.invoices'
+import { Route as ParentGradesRouteImport } from './routes/parent.grades'
+import { Route as ParentCheckoutRouteImport } from './routes/parent.checkout'
+import { Route as ParentCartRouteImport } from './routes/parent.cart'
+import { Route as ParentBudgetRouteImport } from './routes/parent.budget'
+import { Route as ParentAssistantRouteImport } from './routes/parent.assistant'
+import { Route as ParentAddressesRouteImport } from './routes/parent.addresses'
+import { Route as AdminVendorsRouteImport } from './routes/admin.vendors'
+import { Route as AdminSuspensionsRouteImport } from './routes/admin.suspensions'
+import { Route as AdminSecurityRouteImport } from './routes/admin.security'
+import { Route as AdminSchoolsRouteImport } from './routes/admin.schools'
+import { Route as AdminRevenueRouteImport } from './routes/admin.revenue'
+import { Route as AdminReturnsRouteImport } from './routes/admin.returns'
+import { Route as AdminProductsRouteImport } from './routes/admin.products'
+import { Route as AdminParentsRouteImport } from './routes/admin.parents'
+import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
+import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
+import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
 
+const VendorRoute = VendorRouteImport.update({
+  id: '/vendor',
+  path: '/vendor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchoolRoute = SchoolRouteImport.update({
+  id: '/school',
+  path: '/school',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParentRoute = ParentRouteImport.update({
+  id: '/parent',
+  path: '/parent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VendorIndexRoute = VendorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => VendorRoute,
+} as any)
+const SchoolIndexRoute = SchoolIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const ParentIndexRoute = ParentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ParentRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const VendorStoreRoute = VendorStoreRouteImport.update({
+  id: '/store',
+  path: '/store',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorReviewsRoute = VendorReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorRevenueRoute = VendorRevenueRouteImport.update({
+  id: '/revenue',
+  path: '/revenue',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorProductsRoute = VendorProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorPayoutsRoute = VendorPayoutsRouteImport.update({
+  id: '/payouts',
+  path: '/payouts',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorOrdersRoute = VendorOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorOnboardingRoute = VendorOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorInvoicesRoute = VendorInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorInventoryRoute = VendorInventoryRouteImport.update({
+  id: '/inventory',
+  path: '/inventory',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorGstRoute = VendorGstRouteImport.update({
+  id: '/gst',
+  path: '/gst',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorBankRoute = VendorBankRouteImport.update({
+  id: '/bank',
+  path: '/bank',
+  getParentRoute: () => VendorRoute,
+} as any)
+const VendorAlertsRoute = VendorAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => VendorRoute,
+} as any)
+const SchoolYearsRoute = SchoolYearsRouteImport.update({
+  id: '/years',
+  path: '/years',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolUniformsRoute = SchoolUniformsRouteImport.update({
+  id: '/uniforms',
+  path: '/uniforms',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolStatusRoute = SchoolStatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolStationeryRoute = SchoolStationeryRouteImport.update({
+  id: '/stationery',
+  path: '/stationery',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolRequirementsRoute = SchoolRequirementsRouteImport.update({
+  id: '/requirements',
+  path: '/requirements',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolPublicationsRoute = SchoolPublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolProfileRoute = SchoolProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolNotifyRoute = SchoolNotifyRouteImport.update({
+  id: '/notify',
+  path: '/notify',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolClassesRoute = SchoolClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const SchoolBooklistsRoute = SchoolBooklistsRouteImport.update({
+  id: '/booklists',
+  path: '/booklists',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const ParentWishlistRoute = ParentWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentSchoolsRoute = ParentSchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentProductsRoute = ParentProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentOrdersRoute = ParentOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentNotificationsRoute = ParentNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentKitRoute = ParentKitRouteImport.update({
+  id: '/kit',
+  path: '/kit',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentInvoicesRoute = ParentInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentGradesRoute = ParentGradesRouteImport.update({
+  id: '/grades',
+  path: '/grades',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentCheckoutRoute = ParentCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentCartRoute = ParentCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentBudgetRoute = ParentBudgetRouteImport.update({
+  id: '/budget',
+  path: '/budget',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentAssistantRoute = ParentAssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentAddressesRoute = ParentAddressesRouteImport.update({
+  id: '/addresses',
+  path: '/addresses',
+  getParentRoute: () => ParentRoute,
+} as any)
+const AdminVendorsRoute = AdminVendorsRouteImport.update({
+  id: '/vendors',
+  path: '/vendors',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSuspensionsRoute = AdminSuspensionsRouteImport.update({
+  id: '/suspensions',
+  path: '/suspensions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSecurityRoute = AdminSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSchoolsRoute = AdminSchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRevenueRoute = AdminRevenueRouteImport.update({
+  id: '/revenue',
+  path: '/revenue',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReturnsRoute = AdminReturnsRouteImport.update({
+  id: '/returns',
+  path: '/returns',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminParentsRoute = AdminParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminOrdersRoute = AdminOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/parent': typeof ParentRouteWithChildren
+  '/school': typeof SchoolRouteWithChildren
+  '/vendor': typeof VendorRouteWithChildren
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
+  '/vendor/alerts': typeof VendorAlertsRoute
+  '/vendor/bank': typeof VendorBankRoute
+  '/vendor/gst': typeof VendorGstRoute
+  '/vendor/inventory': typeof VendorInventoryRoute
+  '/vendor/invoices': typeof VendorInvoicesRoute
+  '/vendor/onboarding': typeof VendorOnboardingRoute
+  '/vendor/orders': typeof VendorOrdersRoute
+  '/vendor/payouts': typeof VendorPayoutsRoute
+  '/vendor/products': typeof VendorProductsRoute
+  '/vendor/revenue': typeof VendorRevenueRoute
+  '/vendor/reviews': typeof VendorReviewsRoute
+  '/vendor/store': typeof VendorStoreRoute
+  '/admin/': typeof AdminIndexRoute
+  '/parent/': typeof ParentIndexRoute
+  '/school/': typeof SchoolIndexRoute
+  '/vendor/': typeof VendorIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
+  '/vendor/alerts': typeof VendorAlertsRoute
+  '/vendor/bank': typeof VendorBankRoute
+  '/vendor/gst': typeof VendorGstRoute
+  '/vendor/inventory': typeof VendorInventoryRoute
+  '/vendor/invoices': typeof VendorInvoicesRoute
+  '/vendor/onboarding': typeof VendorOnboardingRoute
+  '/vendor/orders': typeof VendorOrdersRoute
+  '/vendor/payouts': typeof VendorPayoutsRoute
+  '/vendor/products': typeof VendorProductsRoute
+  '/vendor/revenue': typeof VendorRevenueRoute
+  '/vendor/reviews': typeof VendorReviewsRoute
+  '/vendor/store': typeof VendorStoreRoute
+  '/admin': typeof AdminIndexRoute
+  '/parent': typeof ParentIndexRoute
+  '/school': typeof SchoolIndexRoute
+  '/vendor': typeof VendorIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/parent': typeof ParentRouteWithChildren
+  '/school': typeof SchoolRouteWithChildren
+  '/vendor': typeof VendorRouteWithChildren
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
+  '/school/booklists': typeof SchoolBooklistsRoute
+  '/school/classes': typeof SchoolClassesRoute
+  '/school/notify': typeof SchoolNotifyRoute
+  '/school/profile': typeof SchoolProfileRoute
+  '/school/publications': typeof SchoolPublicationsRoute
+  '/school/requirements': typeof SchoolRequirementsRoute
+  '/school/stationery': typeof SchoolStationeryRoute
+  '/school/status': typeof SchoolStatusRoute
+  '/school/uniforms': typeof SchoolUniformsRoute
+  '/school/years': typeof SchoolYearsRoute
+  '/vendor/alerts': typeof VendorAlertsRoute
+  '/vendor/bank': typeof VendorBankRoute
+  '/vendor/gst': typeof VendorGstRoute
+  '/vendor/inventory': typeof VendorInventoryRoute
+  '/vendor/invoices': typeof VendorInvoicesRoute
+  '/vendor/onboarding': typeof VendorOnboardingRoute
+  '/vendor/orders': typeof VendorOrdersRoute
+  '/vendor/payouts': typeof VendorPayoutsRoute
+  '/vendor/products': typeof VendorProductsRoute
+  '/vendor/revenue': typeof VendorRevenueRoute
+  '/vendor/reviews': typeof VendorReviewsRoute
+  '/vendor/store': typeof VendorStoreRoute
+  '/admin/': typeof AdminIndexRoute
+  '/parent/': typeof ParentIndexRoute
+  '/school/': typeof SchoolIndexRoute
+  '/vendor/': typeof VendorIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
+    | '/vendor/alerts'
+    | '/vendor/bank'
+    | '/vendor/gst'
+    | '/vendor/inventory'
+    | '/vendor/invoices'
+    | '/vendor/onboarding'
+    | '/vendor/orders'
+    | '/vendor/payouts'
+    | '/vendor/products'
+    | '/vendor/revenue'
+    | '/vendor/reviews'
+    | '/vendor/store'
+    | '/admin/'
+    | '/parent/'
+    | '/school/'
+    | '/vendor/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
+    | '/vendor/alerts'
+    | '/vendor/bank'
+    | '/vendor/gst'
+    | '/vendor/inventory'
+    | '/vendor/invoices'
+    | '/vendor/onboarding'
+    | '/vendor/orders'
+    | '/vendor/payouts'
+    | '/vendor/products'
+    | '/vendor/revenue'
+    | '/vendor/reviews'
+    | '/vendor/store'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
+    | '/school/booklists'
+    | '/school/classes'
+    | '/school/notify'
+    | '/school/profile'
+    | '/school/publications'
+    | '/school/requirements'
+    | '/school/stationery'
+    | '/school/status'
+    | '/school/uniforms'
+    | '/school/years'
+    | '/vendor/alerts'
+    | '/vendor/bank'
+    | '/vendor/gst'
+    | '/vendor/inventory'
+    | '/vendor/invoices'
+    | '/vendor/onboarding'
+    | '/vendor/orders'
+    | '/vendor/payouts'
+    | '/vendor/products'
+    | '/vendor/revenue'
+    | '/vendor/reviews'
+    | '/vendor/store'
+    | '/admin/'
+    | '/parent/'
+    | '/school/'
+    | '/vendor/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  ParentRoute: typeof ParentRouteWithChildren
+  SchoolRoute: typeof SchoolRouteWithChildren
+  VendorRoute: typeof VendorRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vendor': {
+      id: '/vendor'
+      path: '/vendor'
+      fullPath: '/vendor'
+      preLoaderRoute: typeof VendorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/school': {
+      id: '/school'
+      path: '/school'
+      fullPath: '/school'
+      preLoaderRoute: typeof SchoolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parent': {
+      id: '/parent'
+      path: '/parent'
+      fullPath: '/parent'
+      preLoaderRoute: typeof ParentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +724,500 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vendor/': {
+      id: '/vendor/'
+      path: '/'
+      fullPath: '/vendor/'
+      preLoaderRoute: typeof VendorIndexRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/school/': {
+      id: '/school/'
+      path: '/'
+      fullPath: '/school/'
+      preLoaderRoute: typeof SchoolIndexRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/parent/': {
+      id: '/parent/'
+      path: '/'
+      fullPath: '/parent/'
+      preLoaderRoute: typeof ParentIndexRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/vendor/store': {
+      id: '/vendor/store'
+      path: '/store'
+      fullPath: '/vendor/store'
+      preLoaderRoute: typeof VendorStoreRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/reviews': {
+      id: '/vendor/reviews'
+      path: '/reviews'
+      fullPath: '/vendor/reviews'
+      preLoaderRoute: typeof VendorReviewsRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/revenue': {
+      id: '/vendor/revenue'
+      path: '/revenue'
+      fullPath: '/vendor/revenue'
+      preLoaderRoute: typeof VendorRevenueRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/products': {
+      id: '/vendor/products'
+      path: '/products'
+      fullPath: '/vendor/products'
+      preLoaderRoute: typeof VendorProductsRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/payouts': {
+      id: '/vendor/payouts'
+      path: '/payouts'
+      fullPath: '/vendor/payouts'
+      preLoaderRoute: typeof VendorPayoutsRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/orders': {
+      id: '/vendor/orders'
+      path: '/orders'
+      fullPath: '/vendor/orders'
+      preLoaderRoute: typeof VendorOrdersRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/onboarding': {
+      id: '/vendor/onboarding'
+      path: '/onboarding'
+      fullPath: '/vendor/onboarding'
+      preLoaderRoute: typeof VendorOnboardingRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/invoices': {
+      id: '/vendor/invoices'
+      path: '/invoices'
+      fullPath: '/vendor/invoices'
+      preLoaderRoute: typeof VendorInvoicesRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/inventory': {
+      id: '/vendor/inventory'
+      path: '/inventory'
+      fullPath: '/vendor/inventory'
+      preLoaderRoute: typeof VendorInventoryRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/gst': {
+      id: '/vendor/gst'
+      path: '/gst'
+      fullPath: '/vendor/gst'
+      preLoaderRoute: typeof VendorGstRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/bank': {
+      id: '/vendor/bank'
+      path: '/bank'
+      fullPath: '/vendor/bank'
+      preLoaderRoute: typeof VendorBankRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/vendor/alerts': {
+      id: '/vendor/alerts'
+      path: '/alerts'
+      fullPath: '/vendor/alerts'
+      preLoaderRoute: typeof VendorAlertsRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/school/years': {
+      id: '/school/years'
+      path: '/years'
+      fullPath: '/school/years'
+      preLoaderRoute: typeof SchoolYearsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/uniforms': {
+      id: '/school/uniforms'
+      path: '/uniforms'
+      fullPath: '/school/uniforms'
+      preLoaderRoute: typeof SchoolUniformsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/status': {
+      id: '/school/status'
+      path: '/status'
+      fullPath: '/school/status'
+      preLoaderRoute: typeof SchoolStatusRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/stationery': {
+      id: '/school/stationery'
+      path: '/stationery'
+      fullPath: '/school/stationery'
+      preLoaderRoute: typeof SchoolStationeryRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/requirements': {
+      id: '/school/requirements'
+      path: '/requirements'
+      fullPath: '/school/requirements'
+      preLoaderRoute: typeof SchoolRequirementsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/publications': {
+      id: '/school/publications'
+      path: '/publications'
+      fullPath: '/school/publications'
+      preLoaderRoute: typeof SchoolPublicationsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/profile': {
+      id: '/school/profile'
+      path: '/profile'
+      fullPath: '/school/profile'
+      preLoaderRoute: typeof SchoolProfileRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/notify': {
+      id: '/school/notify'
+      path: '/notify'
+      fullPath: '/school/notify'
+      preLoaderRoute: typeof SchoolNotifyRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/classes': {
+      id: '/school/classes'
+      path: '/classes'
+      fullPath: '/school/classes'
+      preLoaderRoute: typeof SchoolClassesRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/school/booklists': {
+      id: '/school/booklists'
+      path: '/booklists'
+      fullPath: '/school/booklists'
+      preLoaderRoute: typeof SchoolBooklistsRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/parent/wishlist': {
+      id: '/parent/wishlist'
+      path: '/wishlist'
+      fullPath: '/parent/wishlist'
+      preLoaderRoute: typeof ParentWishlistRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/schools': {
+      id: '/parent/schools'
+      path: '/schools'
+      fullPath: '/parent/schools'
+      preLoaderRoute: typeof ParentSchoolsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/products': {
+      id: '/parent/products'
+      path: '/products'
+      fullPath: '/parent/products'
+      preLoaderRoute: typeof ParentProductsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/orders': {
+      id: '/parent/orders'
+      path: '/orders'
+      fullPath: '/parent/orders'
+      preLoaderRoute: typeof ParentOrdersRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/notifications': {
+      id: '/parent/notifications'
+      path: '/notifications'
+      fullPath: '/parent/notifications'
+      preLoaderRoute: typeof ParentNotificationsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/kit': {
+      id: '/parent/kit'
+      path: '/kit'
+      fullPath: '/parent/kit'
+      preLoaderRoute: typeof ParentKitRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/invoices': {
+      id: '/parent/invoices'
+      path: '/invoices'
+      fullPath: '/parent/invoices'
+      preLoaderRoute: typeof ParentInvoicesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/grades': {
+      id: '/parent/grades'
+      path: '/grades'
+      fullPath: '/parent/grades'
+      preLoaderRoute: typeof ParentGradesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/checkout': {
+      id: '/parent/checkout'
+      path: '/checkout'
+      fullPath: '/parent/checkout'
+      preLoaderRoute: typeof ParentCheckoutRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/cart': {
+      id: '/parent/cart'
+      path: '/cart'
+      fullPath: '/parent/cart'
+      preLoaderRoute: typeof ParentCartRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/budget': {
+      id: '/parent/budget'
+      path: '/budget'
+      fullPath: '/parent/budget'
+      preLoaderRoute: typeof ParentBudgetRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/assistant': {
+      id: '/parent/assistant'
+      path: '/assistant'
+      fullPath: '/parent/assistant'
+      preLoaderRoute: typeof ParentAssistantRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/addresses': {
+      id: '/parent/addresses'
+      path: '/addresses'
+      fullPath: '/parent/addresses'
+      preLoaderRoute: typeof ParentAddressesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/admin/vendors': {
+      id: '/admin/vendors'
+      path: '/vendors'
+      fullPath: '/admin/vendors'
+      preLoaderRoute: typeof AdminVendorsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/suspensions': {
+      id: '/admin/suspensions'
+      path: '/suspensions'
+      fullPath: '/admin/suspensions'
+      preLoaderRoute: typeof AdminSuspensionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/security': {
+      id: '/admin/security'
+      path: '/security'
+      fullPath: '/admin/security'
+      preLoaderRoute: typeof AdminSecurityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/schools': {
+      id: '/admin/schools'
+      path: '/schools'
+      fullPath: '/admin/schools'
+      preLoaderRoute: typeof AdminSchoolsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/revenue': {
+      id: '/admin/revenue'
+      path: '/revenue'
+      fullPath: '/admin/revenue'
+      preLoaderRoute: typeof AdminRevenueRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/returns': {
+      id: '/admin/returns'
+      path: '/returns'
+      fullPath: '/admin/returns'
+      preLoaderRoute: typeof AdminReturnsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/parents': {
+      id: '/admin/parents'
+      path: '/parents'
+      fullPath: '/admin/parents'
+      preLoaderRoute: typeof AdminParentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/orders': {
+      id: '/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AdminOrdersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/categories': {
+      id: '/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AdminCategoriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/approvals': {
+      id: '/admin/approvals'
+      path: '/approvals'
+      fullPath: '/admin/approvals'
+      preLoaderRoute: typeof AdminApprovalsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminApprovalsRoute: typeof AdminApprovalsRoute
+  AdminCategoriesRoute: typeof AdminCategoriesRoute
+  AdminOrdersRoute: typeof AdminOrdersRoute
+  AdminParentsRoute: typeof AdminParentsRoute
+  AdminProductsRoute: typeof AdminProductsRoute
+  AdminReturnsRoute: typeof AdminReturnsRoute
+  AdminRevenueRoute: typeof AdminRevenueRoute
+  AdminSchoolsRoute: typeof AdminSchoolsRoute
+  AdminSecurityRoute: typeof AdminSecurityRoute
+  AdminSuspensionsRoute: typeof AdminSuspensionsRoute
+  AdminVendorsRoute: typeof AdminVendorsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminApprovalsRoute: AdminApprovalsRoute,
+  AdminCategoriesRoute: AdminCategoriesRoute,
+  AdminOrdersRoute: AdminOrdersRoute,
+  AdminParentsRoute: AdminParentsRoute,
+  AdminProductsRoute: AdminProductsRoute,
+  AdminReturnsRoute: AdminReturnsRoute,
+  AdminRevenueRoute: AdminRevenueRoute,
+  AdminSchoolsRoute: AdminSchoolsRoute,
+  AdminSecurityRoute: AdminSecurityRoute,
+  AdminSuspensionsRoute: AdminSuspensionsRoute,
+  AdminVendorsRoute: AdminVendorsRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ParentRouteChildren {
+  ParentAddressesRoute: typeof ParentAddressesRoute
+  ParentAssistantRoute: typeof ParentAssistantRoute
+  ParentBudgetRoute: typeof ParentBudgetRoute
+  ParentCartRoute: typeof ParentCartRoute
+  ParentCheckoutRoute: typeof ParentCheckoutRoute
+  ParentGradesRoute: typeof ParentGradesRoute
+  ParentInvoicesRoute: typeof ParentInvoicesRoute
+  ParentKitRoute: typeof ParentKitRoute
+  ParentNotificationsRoute: typeof ParentNotificationsRoute
+  ParentOrdersRoute: typeof ParentOrdersRoute
+  ParentProductsRoute: typeof ParentProductsRoute
+  ParentSchoolsRoute: typeof ParentSchoolsRoute
+  ParentWishlistRoute: typeof ParentWishlistRoute
+  ParentIndexRoute: typeof ParentIndexRoute
+}
+
+const ParentRouteChildren: ParentRouteChildren = {
+  ParentAddressesRoute: ParentAddressesRoute,
+  ParentAssistantRoute: ParentAssistantRoute,
+  ParentBudgetRoute: ParentBudgetRoute,
+  ParentCartRoute: ParentCartRoute,
+  ParentCheckoutRoute: ParentCheckoutRoute,
+  ParentGradesRoute: ParentGradesRoute,
+  ParentInvoicesRoute: ParentInvoicesRoute,
+  ParentKitRoute: ParentKitRoute,
+  ParentNotificationsRoute: ParentNotificationsRoute,
+  ParentOrdersRoute: ParentOrdersRoute,
+  ParentProductsRoute: ParentProductsRoute,
+  ParentSchoolsRoute: ParentSchoolsRoute,
+  ParentWishlistRoute: ParentWishlistRoute,
+  ParentIndexRoute: ParentIndexRoute,
+}
+
+const ParentRouteWithChildren =
+  ParentRoute._addFileChildren(ParentRouteChildren)
+
+interface SchoolRouteChildren {
+  SchoolBooklistsRoute: typeof SchoolBooklistsRoute
+  SchoolClassesRoute: typeof SchoolClassesRoute
+  SchoolNotifyRoute: typeof SchoolNotifyRoute
+  SchoolProfileRoute: typeof SchoolProfileRoute
+  SchoolPublicationsRoute: typeof SchoolPublicationsRoute
+  SchoolRequirementsRoute: typeof SchoolRequirementsRoute
+  SchoolStationeryRoute: typeof SchoolStationeryRoute
+  SchoolStatusRoute: typeof SchoolStatusRoute
+  SchoolUniformsRoute: typeof SchoolUniformsRoute
+  SchoolYearsRoute: typeof SchoolYearsRoute
+  SchoolIndexRoute: typeof SchoolIndexRoute
+}
+
+const SchoolRouteChildren: SchoolRouteChildren = {
+  SchoolBooklistsRoute: SchoolBooklistsRoute,
+  SchoolClassesRoute: SchoolClassesRoute,
+  SchoolNotifyRoute: SchoolNotifyRoute,
+  SchoolProfileRoute: SchoolProfileRoute,
+  SchoolPublicationsRoute: SchoolPublicationsRoute,
+  SchoolRequirementsRoute: SchoolRequirementsRoute,
+  SchoolStationeryRoute: SchoolStationeryRoute,
+  SchoolStatusRoute: SchoolStatusRoute,
+  SchoolUniformsRoute: SchoolUniformsRoute,
+  SchoolYearsRoute: SchoolYearsRoute,
+  SchoolIndexRoute: SchoolIndexRoute,
+}
+
+const SchoolRouteWithChildren =
+  SchoolRoute._addFileChildren(SchoolRouteChildren)
+
+interface VendorRouteChildren {
+  VendorAlertsRoute: typeof VendorAlertsRoute
+  VendorBankRoute: typeof VendorBankRoute
+  VendorGstRoute: typeof VendorGstRoute
+  VendorInventoryRoute: typeof VendorInventoryRoute
+  VendorInvoicesRoute: typeof VendorInvoicesRoute
+  VendorOnboardingRoute: typeof VendorOnboardingRoute
+  VendorOrdersRoute: typeof VendorOrdersRoute
+  VendorPayoutsRoute: typeof VendorPayoutsRoute
+  VendorProductsRoute: typeof VendorProductsRoute
+  VendorRevenueRoute: typeof VendorRevenueRoute
+  VendorReviewsRoute: typeof VendorReviewsRoute
+  VendorStoreRoute: typeof VendorStoreRoute
+  VendorIndexRoute: typeof VendorIndexRoute
+}
+
+const VendorRouteChildren: VendorRouteChildren = {
+  VendorAlertsRoute: VendorAlertsRoute,
+  VendorBankRoute: VendorBankRoute,
+  VendorGstRoute: VendorGstRoute,
+  VendorInventoryRoute: VendorInventoryRoute,
+  VendorInvoicesRoute: VendorInvoicesRoute,
+  VendorOnboardingRoute: VendorOnboardingRoute,
+  VendorOrdersRoute: VendorOrdersRoute,
+  VendorPayoutsRoute: VendorPayoutsRoute,
+  VendorProductsRoute: VendorProductsRoute,
+  VendorRevenueRoute: VendorRevenueRoute,
+  VendorReviewsRoute: VendorReviewsRoute,
+  VendorStoreRoute: VendorStoreRoute,
+  VendorIndexRoute: VendorIndexRoute,
+}
+
+const VendorRouteWithChildren =
+  VendorRoute._addFileChildren(VendorRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
+  ParentRoute: ParentRouteWithChildren,
+  SchoolRoute: SchoolRouteWithChildren,
+  VendorRoute: VendorRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
