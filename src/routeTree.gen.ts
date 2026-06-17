@@ -18,6 +18,19 @@ import { Route as VendorIndexRouteImport } from './routes/vendor.index'
 import { Route as SchoolIndexRouteImport } from './routes/school.index'
 import { Route as ParentIndexRouteImport } from './routes/parent.index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as ParentWishlistRouteImport } from './routes/parent.wishlist'
+import { Route as ParentSchoolsRouteImport } from './routes/parent.schools'
+import { Route as ParentProductsRouteImport } from './routes/parent.products'
+import { Route as ParentOrdersRouteImport } from './routes/parent.orders'
+import { Route as ParentNotificationsRouteImport } from './routes/parent.notifications'
+import { Route as ParentKitRouteImport } from './routes/parent.kit'
+import { Route as ParentInvoicesRouteImport } from './routes/parent.invoices'
+import { Route as ParentGradesRouteImport } from './routes/parent.grades'
+import { Route as ParentCheckoutRouteImport } from './routes/parent.checkout'
+import { Route as ParentCartRouteImport } from './routes/parent.cart'
+import { Route as ParentBudgetRouteImport } from './routes/parent.budget'
+import { Route as ParentAssistantRouteImport } from './routes/parent.assistant'
+import { Route as ParentAddressesRouteImport } from './routes/parent.addresses'
 
 const VendorRoute = VendorRouteImport.update({
   id: '/vendor',
@@ -64,6 +77,71 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const ParentWishlistRoute = ParentWishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentSchoolsRoute = ParentSchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentProductsRoute = ParentProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentOrdersRoute = ParentOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentNotificationsRoute = ParentNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentKitRoute = ParentKitRouteImport.update({
+  id: '/kit',
+  path: '/kit',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentInvoicesRoute = ParentInvoicesRouteImport.update({
+  id: '/invoices',
+  path: '/invoices',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentGradesRoute = ParentGradesRouteImport.update({
+  id: '/grades',
+  path: '/grades',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentCheckoutRoute = ParentCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentCartRoute = ParentCartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentBudgetRoute = ParentBudgetRouteImport.update({
+  id: '/budget',
+  path: '/budget',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentAssistantRoute = ParentAssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => ParentRoute,
+} as any)
+const ParentAddressesRoute = ParentAddressesRouteImport.update({
+  id: '/addresses',
+  path: '/addresses',
+  getParentRoute: () => ParentRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -71,6 +149,19 @@ export interface FileRoutesByFullPath {
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
   '/admin/': typeof AdminIndexRoute
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
@@ -78,6 +169,19 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
   '/admin': typeof AdminIndexRoute
   '/parent': typeof ParentIndexRoute
   '/school': typeof SchoolIndexRoute
@@ -90,6 +194,19 @@ export interface FileRoutesById {
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
+  '/parent/addresses': typeof ParentAddressesRoute
+  '/parent/assistant': typeof ParentAssistantRoute
+  '/parent/budget': typeof ParentBudgetRoute
+  '/parent/cart': typeof ParentCartRoute
+  '/parent/checkout': typeof ParentCheckoutRoute
+  '/parent/grades': typeof ParentGradesRoute
+  '/parent/invoices': typeof ParentInvoicesRoute
+  '/parent/kit': typeof ParentKitRoute
+  '/parent/notifications': typeof ParentNotificationsRoute
+  '/parent/orders': typeof ParentOrdersRoute
+  '/parent/products': typeof ParentProductsRoute
+  '/parent/schools': typeof ParentSchoolsRoute
+  '/parent/wishlist': typeof ParentWishlistRoute
   '/admin/': typeof AdminIndexRoute
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
@@ -103,12 +220,43 @@ export interface FileRouteTypes {
     | '/parent'
     | '/school'
     | '/vendor'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
     | '/admin/'
     | '/parent/'
     | '/school/'
     | '/vendor/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/parent' | '/school' | '/vendor'
+  to:
+    | '/'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
   id:
     | '__root__'
     | '/'
@@ -116,6 +264,19 @@ export interface FileRouteTypes {
     | '/parent'
     | '/school'
     | '/vendor'
+    | '/parent/addresses'
+    | '/parent/assistant'
+    | '/parent/budget'
+    | '/parent/cart'
+    | '/parent/checkout'
+    | '/parent/grades'
+    | '/parent/invoices'
+    | '/parent/kit'
+    | '/parent/notifications'
+    | '/parent/orders'
+    | '/parent/products'
+    | '/parent/schools'
+    | '/parent/wishlist'
     | '/admin/'
     | '/parent/'
     | '/school/'
@@ -195,6 +356,97 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/parent/wishlist': {
+      id: '/parent/wishlist'
+      path: '/wishlist'
+      fullPath: '/parent/wishlist'
+      preLoaderRoute: typeof ParentWishlistRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/schools': {
+      id: '/parent/schools'
+      path: '/schools'
+      fullPath: '/parent/schools'
+      preLoaderRoute: typeof ParentSchoolsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/products': {
+      id: '/parent/products'
+      path: '/products'
+      fullPath: '/parent/products'
+      preLoaderRoute: typeof ParentProductsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/orders': {
+      id: '/parent/orders'
+      path: '/orders'
+      fullPath: '/parent/orders'
+      preLoaderRoute: typeof ParentOrdersRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/notifications': {
+      id: '/parent/notifications'
+      path: '/notifications'
+      fullPath: '/parent/notifications'
+      preLoaderRoute: typeof ParentNotificationsRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/kit': {
+      id: '/parent/kit'
+      path: '/kit'
+      fullPath: '/parent/kit'
+      preLoaderRoute: typeof ParentKitRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/invoices': {
+      id: '/parent/invoices'
+      path: '/invoices'
+      fullPath: '/parent/invoices'
+      preLoaderRoute: typeof ParentInvoicesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/grades': {
+      id: '/parent/grades'
+      path: '/grades'
+      fullPath: '/parent/grades'
+      preLoaderRoute: typeof ParentGradesRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/checkout': {
+      id: '/parent/checkout'
+      path: '/checkout'
+      fullPath: '/parent/checkout'
+      preLoaderRoute: typeof ParentCheckoutRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/cart': {
+      id: '/parent/cart'
+      path: '/cart'
+      fullPath: '/parent/cart'
+      preLoaderRoute: typeof ParentCartRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/budget': {
+      id: '/parent/budget'
+      path: '/budget'
+      fullPath: '/parent/budget'
+      preLoaderRoute: typeof ParentBudgetRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/assistant': {
+      id: '/parent/assistant'
+      path: '/assistant'
+      fullPath: '/parent/assistant'
+      preLoaderRoute: typeof ParentAssistantRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/parent/addresses': {
+      id: '/parent/addresses'
+      path: '/addresses'
+      fullPath: '/parent/addresses'
+      preLoaderRoute: typeof ParentAddressesRouteImport
+      parentRoute: typeof ParentRoute
+    }
   }
 }
 
@@ -209,10 +461,36 @@ const AdminRouteChildren: AdminRouteChildren = {
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface ParentRouteChildren {
+  ParentAddressesRoute: typeof ParentAddressesRoute
+  ParentAssistantRoute: typeof ParentAssistantRoute
+  ParentBudgetRoute: typeof ParentBudgetRoute
+  ParentCartRoute: typeof ParentCartRoute
+  ParentCheckoutRoute: typeof ParentCheckoutRoute
+  ParentGradesRoute: typeof ParentGradesRoute
+  ParentInvoicesRoute: typeof ParentInvoicesRoute
+  ParentKitRoute: typeof ParentKitRoute
+  ParentNotificationsRoute: typeof ParentNotificationsRoute
+  ParentOrdersRoute: typeof ParentOrdersRoute
+  ParentProductsRoute: typeof ParentProductsRoute
+  ParentSchoolsRoute: typeof ParentSchoolsRoute
+  ParentWishlistRoute: typeof ParentWishlistRoute
   ParentIndexRoute: typeof ParentIndexRoute
 }
 
 const ParentRouteChildren: ParentRouteChildren = {
+  ParentAddressesRoute: ParentAddressesRoute,
+  ParentAssistantRoute: ParentAssistantRoute,
+  ParentBudgetRoute: ParentBudgetRoute,
+  ParentCartRoute: ParentCartRoute,
+  ParentCheckoutRoute: ParentCheckoutRoute,
+  ParentGradesRoute: ParentGradesRoute,
+  ParentInvoicesRoute: ParentInvoicesRoute,
+  ParentKitRoute: ParentKitRoute,
+  ParentNotificationsRoute: ParentNotificationsRoute,
+  ParentOrdersRoute: ParentOrdersRoute,
+  ParentProductsRoute: ParentProductsRoute,
+  ParentSchoolsRoute: ParentSchoolsRoute,
+  ParentWishlistRoute: ParentWishlistRoute,
   ParentIndexRoute: ParentIndexRoute,
 }
 
