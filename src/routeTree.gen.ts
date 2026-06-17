@@ -53,6 +53,17 @@ import { Route as ParentCartRouteImport } from './routes/parent.cart'
 import { Route as ParentBudgetRouteImport } from './routes/parent.budget'
 import { Route as ParentAssistantRouteImport } from './routes/parent.assistant'
 import { Route as ParentAddressesRouteImport } from './routes/parent.addresses'
+import { Route as AdminVendorsRouteImport } from './routes/admin.vendors'
+import { Route as AdminSuspensionsRouteImport } from './routes/admin.suspensions'
+import { Route as AdminSecurityRouteImport } from './routes/admin.security'
+import { Route as AdminSchoolsRouteImport } from './routes/admin.schools'
+import { Route as AdminRevenueRouteImport } from './routes/admin.revenue'
+import { Route as AdminReturnsRouteImport } from './routes/admin.returns'
+import { Route as AdminProductsRouteImport } from './routes/admin.products'
+import { Route as AdminParentsRouteImport } from './routes/admin.parents'
+import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
+import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
+import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
 
 const VendorRoute = VendorRouteImport.update({
   id: '/vendor',
@@ -274,6 +285,61 @@ const ParentAddressesRoute = ParentAddressesRouteImport.update({
   path: '/addresses',
   getParentRoute: () => ParentRoute,
 } as any)
+const AdminVendorsRoute = AdminVendorsRouteImport.update({
+  id: '/vendors',
+  path: '/vendors',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSuspensionsRoute = AdminSuspensionsRouteImport.update({
+  id: '/suspensions',
+  path: '/suspensions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSecurityRoute = AdminSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSchoolsRoute = AdminSchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRevenueRoute = AdminRevenueRouteImport.update({
+  id: '/revenue',
+  path: '/revenue',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReturnsRoute = AdminReturnsRouteImport.update({
+  id: '/returns',
+  path: '/returns',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminParentsRoute = AdminParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminOrdersRoute = AdminOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCategoriesRoute = AdminCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -281,6 +347,17 @@ export interface FileRoutesByFullPath {
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -323,6 +400,17 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -370,6 +458,17 @@ export interface FileRoutesById {
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
+  '/admin/approvals': typeof AdminApprovalsRoute
+  '/admin/categories': typeof AdminCategoriesRoute
+  '/admin/orders': typeof AdminOrdersRoute
+  '/admin/parents': typeof AdminParentsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/returns': typeof AdminReturnsRoute
+  '/admin/revenue': typeof AdminRevenueRoute
+  '/admin/schools': typeof AdminSchoolsRoute
+  '/admin/security': typeof AdminSecurityRoute
+  '/admin/suspensions': typeof AdminSuspensionsRoute
+  '/admin/vendors': typeof AdminVendorsRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -418,6 +517,17 @@ export interface FileRouteTypes {
     | '/parent'
     | '/school'
     | '/vendor'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -460,6 +570,17 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -506,6 +627,17 @@ export interface FileRouteTypes {
     | '/parent'
     | '/school'
     | '/vendor'
+    | '/admin/approvals'
+    | '/admin/categories'
+    | '/admin/orders'
+    | '/admin/parents'
+    | '/admin/products'
+    | '/admin/returns'
+    | '/admin/revenue'
+    | '/admin/schools'
+    | '/admin/security'
+    | '/admin/suspensions'
+    | '/admin/vendors'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -865,14 +997,113 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParentAddressesRouteImport
       parentRoute: typeof ParentRoute
     }
+    '/admin/vendors': {
+      id: '/admin/vendors'
+      path: '/vendors'
+      fullPath: '/admin/vendors'
+      preLoaderRoute: typeof AdminVendorsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/suspensions': {
+      id: '/admin/suspensions'
+      path: '/suspensions'
+      fullPath: '/admin/suspensions'
+      preLoaderRoute: typeof AdminSuspensionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/security': {
+      id: '/admin/security'
+      path: '/security'
+      fullPath: '/admin/security'
+      preLoaderRoute: typeof AdminSecurityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/schools': {
+      id: '/admin/schools'
+      path: '/schools'
+      fullPath: '/admin/schools'
+      preLoaderRoute: typeof AdminSchoolsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/revenue': {
+      id: '/admin/revenue'
+      path: '/revenue'
+      fullPath: '/admin/revenue'
+      preLoaderRoute: typeof AdminRevenueRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/returns': {
+      id: '/admin/returns'
+      path: '/returns'
+      fullPath: '/admin/returns'
+      preLoaderRoute: typeof AdminReturnsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/parents': {
+      id: '/admin/parents'
+      path: '/parents'
+      fullPath: '/admin/parents'
+      preLoaderRoute: typeof AdminParentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/orders': {
+      id: '/admin/orders'
+      path: '/orders'
+      fullPath: '/admin/orders'
+      preLoaderRoute: typeof AdminOrdersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/categories': {
+      id: '/admin/categories'
+      path: '/categories'
+      fullPath: '/admin/categories'
+      preLoaderRoute: typeof AdminCategoriesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/approvals': {
+      id: '/admin/approvals'
+      path: '/approvals'
+      fullPath: '/admin/approvals'
+      preLoaderRoute: typeof AdminApprovalsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminApprovalsRoute: typeof AdminApprovalsRoute
+  AdminCategoriesRoute: typeof AdminCategoriesRoute
+  AdminOrdersRoute: typeof AdminOrdersRoute
+  AdminParentsRoute: typeof AdminParentsRoute
+  AdminProductsRoute: typeof AdminProductsRoute
+  AdminReturnsRoute: typeof AdminReturnsRoute
+  AdminRevenueRoute: typeof AdminRevenueRoute
+  AdminSchoolsRoute: typeof AdminSchoolsRoute
+  AdminSecurityRoute: typeof AdminSecurityRoute
+  AdminSuspensionsRoute: typeof AdminSuspensionsRoute
+  AdminVendorsRoute: typeof AdminVendorsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminApprovalsRoute: AdminApprovalsRoute,
+  AdminCategoriesRoute: AdminCategoriesRoute,
+  AdminOrdersRoute: AdminOrdersRoute,
+  AdminParentsRoute: AdminParentsRoute,
+  AdminProductsRoute: AdminProductsRoute,
+  AdminReturnsRoute: AdminReturnsRoute,
+  AdminRevenueRoute: AdminRevenueRoute,
+  AdminSchoolsRoute: AdminSchoolsRoute,
+  AdminSecurityRoute: AdminSecurityRoute,
+  AdminSuspensionsRoute: AdminSuspensionsRoute,
+  AdminVendorsRoute: AdminVendorsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
