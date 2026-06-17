@@ -14,6 +14,10 @@ import { Route as SchoolRouteImport } from './routes/school'
 import { Route as ParentRouteImport } from './routes/parent'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VendorIndexRouteImport } from './routes/vendor.index'
+import { Route as SchoolIndexRouteImport } from './routes/school.index'
+import { Route as ParentIndexRouteImport } from './routes/parent.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 
 const VendorRoute = VendorRouteImport.update({
   id: '/vendor',
@@ -40,43 +44,90 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VendorIndexRoute = VendorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => VendorRoute,
+} as any)
+const SchoolIndexRoute = SchoolIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SchoolRoute,
+} as any)
+const ParentIndexRoute = ParentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ParentRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/parent': typeof ParentRoute
-  '/school': typeof SchoolRoute
-  '/vendor': typeof VendorRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/parent': typeof ParentRouteWithChildren
+  '/school': typeof SchoolRouteWithChildren
+  '/vendor': typeof VendorRouteWithChildren
+  '/admin/': typeof AdminIndexRoute
+  '/parent/': typeof ParentIndexRoute
+  '/school/': typeof SchoolIndexRoute
+  '/vendor/': typeof VendorIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/parent': typeof ParentRoute
-  '/school': typeof SchoolRoute
-  '/vendor': typeof VendorRoute
+  '/admin': typeof AdminIndexRoute
+  '/parent': typeof ParentIndexRoute
+  '/school': typeof SchoolIndexRoute
+  '/vendor': typeof VendorIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/parent': typeof ParentRoute
-  '/school': typeof SchoolRoute
-  '/vendor': typeof VendorRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/parent': typeof ParentRouteWithChildren
+  '/school': typeof SchoolRouteWithChildren
+  '/vendor': typeof VendorRouteWithChildren
+  '/admin/': typeof AdminIndexRoute
+  '/parent/': typeof ParentIndexRoute
+  '/school/': typeof SchoolIndexRoute
+  '/vendor/': typeof VendorIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/parent' | '/school' | '/vendor'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
+    | '/admin/'
+    | '/parent/'
+    | '/school/'
+    | '/vendor/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/admin' | '/parent' | '/school' | '/vendor'
-  id: '__root__' | '/' | '/admin' | '/parent' | '/school' | '/vendor'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/parent'
+    | '/school'
+    | '/vendor'
+    | '/admin/'
+    | '/parent/'
+    | '/school/'
+    | '/vendor/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
-  ParentRoute: typeof ParentRoute
-  SchoolRoute: typeof SchoolRoute
-  VendorRoute: typeof VendorRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  ParentRoute: typeof ParentRouteWithChildren
+  SchoolRoute: typeof SchoolRouteWithChildren
+  VendorRoute: typeof VendorRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -116,15 +167,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vendor/': {
+      id: '/vendor/'
+      path: '/'
+      fullPath: '/vendor/'
+      preLoaderRoute: typeof VendorIndexRouteImport
+      parentRoute: typeof VendorRoute
+    }
+    '/school/': {
+      id: '/school/'
+      path: '/'
+      fullPath: '/school/'
+      preLoaderRoute: typeof SchoolIndexRouteImport
+      parentRoute: typeof SchoolRoute
+    }
+    '/parent/': {
+      id: '/parent/'
+      path: '/'
+      fullPath: '/parent/'
+      preLoaderRoute: typeof ParentIndexRouteImport
+      parentRoute: typeof ParentRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ParentRouteChildren {
+  ParentIndexRoute: typeof ParentIndexRoute
+}
+
+const ParentRouteChildren: ParentRouteChildren = {
+  ParentIndexRoute: ParentIndexRoute,
+}
+
+const ParentRouteWithChildren =
+  ParentRoute._addFileChildren(ParentRouteChildren)
+
+interface SchoolRouteChildren {
+  SchoolIndexRoute: typeof SchoolIndexRoute
+}
+
+const SchoolRouteChildren: SchoolRouteChildren = {
+  SchoolIndexRoute: SchoolIndexRoute,
+}
+
+const SchoolRouteWithChildren =
+  SchoolRoute._addFileChildren(SchoolRouteChildren)
+
+interface VendorRouteChildren {
+  VendorIndexRoute: typeof VendorIndexRoute
+}
+
+const VendorRouteChildren: VendorRouteChildren = {
+  VendorIndexRoute: VendorIndexRoute,
+}
+
+const VendorRouteWithChildren =
+  VendorRoute._addFileChildren(VendorRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
-  ParentRoute: ParentRoute,
-  SchoolRoute: SchoolRoute,
-  VendorRoute: VendorRoute,
+  AdminRoute: AdminRouteWithChildren,
+  ParentRoute: ParentRouteWithChildren,
+  SchoolRoute: SchoolRouteWithChildren,
+  VendorRoute: VendorRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
