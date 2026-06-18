@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VendorRouteImport } from './routes/vendor'
 import { Route as SchoolRouteImport } from './routes/school'
 import { Route as ParentRouteImport } from './routes/parent'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as VendorIndexRouteImport } from './routes/vendor.index'
 import { Route as SchoolIndexRouteImport } from './routes/school.index'
@@ -53,6 +56,7 @@ import { Route as ParentCartRouteImport } from './routes/parent.cart'
 import { Route as ParentBudgetRouteImport } from './routes/parent.budget'
 import { Route as ParentAssistantRouteImport } from './routes/parent.assistant'
 import { Route as ParentAddressesRouteImport } from './routes/parent.addresses'
+import { Route as MarketplaceProductIdRouteImport } from './routes/marketplace.$productId'
 import { Route as AdminVendorsRouteImport } from './routes/admin.vendors'
 import { Route as AdminSuspensionsRouteImport } from './routes/admin.suspensions'
 import { Route as AdminSecurityRouteImport } from './routes/admin.security'
@@ -64,6 +68,13 @@ import { Route as AdminParentsRouteImport } from './routes/admin.parents'
 import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
 import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
 import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
+import { Route as AuthVendorRegisterRouteImport } from './routes/auth.vendor.register'
+import { Route as AuthVendorLoginRouteImport } from './routes/auth.vendor.login'
+import { Route as AuthSchoolRegisterRouteImport } from './routes/auth.school.register'
+import { Route as AuthSchoolLoginRouteImport } from './routes/auth.school.login'
+import { Route as AuthParentRegisterRouteImport } from './routes/auth.parent.register'
+import { Route as AuthParentLoginRouteImport } from './routes/auth.parent.login'
+import { Route as AuthAdminLoginRouteImport } from './routes/auth.admin.login'
 
 const VendorRoute = VendorRouteImport.update({
   id: '/vendor',
@@ -80,9 +91,24 @@ const ParentRoute = ParentRouteImport.update({
   path: '/parent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -285,6 +311,11 @@ const ParentAddressesRoute = ParentAddressesRouteImport.update({
   path: '/addresses',
   getParentRoute: () => ParentRoute,
 } as any)
+const MarketplaceProductIdRoute = MarketplaceProductIdRouteImport.update({
+  id: '/$productId',
+  path: '/$productId',
+  getParentRoute: () => MarketplaceRoute,
+} as any)
 const AdminVendorsRoute = AdminVendorsRouteImport.update({
   id: '/vendors',
   path: '/vendors',
@@ -340,10 +371,48 @@ const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
   path: '/approvals',
   getParentRoute: () => AdminRoute,
 } as any)
+const AuthVendorRegisterRoute = AuthVendorRegisterRouteImport.update({
+  id: '/auth/vendor/register',
+  path: '/auth/vendor/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthVendorLoginRoute = AuthVendorLoginRouteImport.update({
+  id: '/auth/vendor/login',
+  path: '/auth/vendor/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSchoolRegisterRoute = AuthSchoolRegisterRouteImport.update({
+  id: '/auth/school/register',
+  path: '/auth/school/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSchoolLoginRoute = AuthSchoolLoginRouteImport.update({
+  id: '/auth/school/login',
+  path: '/auth/school/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthParentRegisterRoute = AuthParentRegisterRouteImport.update({
+  id: '/auth/parent/register',
+  path: '/auth/parent/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthParentLoginRoute = AuthParentLoginRouteImport.update({
+  id: '/auth/parent/login',
+  path: '/auth/parent/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthAdminLoginRoute = AuthAdminLoginRouteImport.update({
+  id: '/auth/admin/login',
+  path: '/auth/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/marketplace': typeof MarketplaceRouteWithChildren
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
@@ -358,6 +427,7 @@ export interface FileRoutesByFullPath {
   '/admin/security': typeof AdminSecurityRoute
   '/admin/suspensions': typeof AdminSuspensionsRoute
   '/admin/vendors': typeof AdminVendorsRoute
+  '/marketplace/$productId': typeof MarketplaceProductIdRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -397,9 +467,19 @@ export interface FileRoutesByFullPath {
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
   '/vendor/': typeof VendorIndexRoute
+  '/auth/admin/login': typeof AuthAdminLoginRoute
+  '/auth/parent/login': typeof AuthParentLoginRoute
+  '/auth/parent/register': typeof AuthParentRegisterRoute
+  '/auth/school/login': typeof AuthSchoolLoginRoute
+  '/auth/school/register': typeof AuthSchoolRegisterRoute
+  '/auth/vendor/login': typeof AuthVendorLoginRoute
+  '/auth/vendor/register': typeof AuthVendorRegisterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/marketplace': typeof MarketplaceRouteWithChildren
   '/admin/approvals': typeof AdminApprovalsRoute
   '/admin/categories': typeof AdminCategoriesRoute
   '/admin/orders': typeof AdminOrdersRoute
@@ -411,6 +491,7 @@ export interface FileRoutesByTo {
   '/admin/security': typeof AdminSecurityRoute
   '/admin/suspensions': typeof AdminSuspensionsRoute
   '/admin/vendors': typeof AdminVendorsRoute
+  '/marketplace/$productId': typeof MarketplaceProductIdRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -450,11 +531,21 @@ export interface FileRoutesByTo {
   '/parent': typeof ParentIndexRoute
   '/school': typeof SchoolIndexRoute
   '/vendor': typeof VendorIndexRoute
+  '/auth/admin/login': typeof AuthAdminLoginRoute
+  '/auth/parent/login': typeof AuthParentLoginRoute
+  '/auth/parent/register': typeof AuthParentRegisterRoute
+  '/auth/school/login': typeof AuthSchoolLoginRoute
+  '/auth/school/register': typeof AuthSchoolRegisterRoute
+  '/auth/vendor/login': typeof AuthVendorLoginRoute
+  '/auth/vendor/register': typeof AuthVendorRegisterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/admin': typeof AdminRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/marketplace': typeof MarketplaceRouteWithChildren
   '/parent': typeof ParentRouteWithChildren
   '/school': typeof SchoolRouteWithChildren
   '/vendor': typeof VendorRouteWithChildren
@@ -469,6 +560,7 @@ export interface FileRoutesById {
   '/admin/security': typeof AdminSecurityRoute
   '/admin/suspensions': typeof AdminSuspensionsRoute
   '/admin/vendors': typeof AdminVendorsRoute
+  '/marketplace/$productId': typeof MarketplaceProductIdRoute
   '/parent/addresses': typeof ParentAddressesRoute
   '/parent/assistant': typeof ParentAssistantRoute
   '/parent/budget': typeof ParentBudgetRoute
@@ -508,12 +600,22 @@ export interface FileRoutesById {
   '/parent/': typeof ParentIndexRoute
   '/school/': typeof SchoolIndexRoute
   '/vendor/': typeof VendorIndexRoute
+  '/auth/admin/login': typeof AuthAdminLoginRoute
+  '/auth/parent/login': typeof AuthParentLoginRoute
+  '/auth/parent/register': typeof AuthParentRegisterRoute
+  '/auth/school/login': typeof AuthSchoolLoginRoute
+  '/auth/school/register': typeof AuthSchoolRegisterRoute
+  '/auth/vendor/login': typeof AuthVendorLoginRoute
+  '/auth/vendor/register': typeof AuthVendorRegisterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/admin'
+    | '/contact'
+    | '/marketplace'
     | '/parent'
     | '/school'
     | '/vendor'
@@ -528,6 +630,7 @@ export interface FileRouteTypes {
     | '/admin/security'
     | '/admin/suspensions'
     | '/admin/vendors'
+    | '/marketplace/$productId'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -567,9 +670,19 @@ export interface FileRouteTypes {
     | '/parent/'
     | '/school/'
     | '/vendor/'
+    | '/auth/admin/login'
+    | '/auth/parent/login'
+    | '/auth/parent/register'
+    | '/auth/school/login'
+    | '/auth/school/register'
+    | '/auth/vendor/login'
+    | '/auth/vendor/register'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/contact'
+    | '/marketplace'
     | '/admin/approvals'
     | '/admin/categories'
     | '/admin/orders'
@@ -581,6 +694,7 @@ export interface FileRouteTypes {
     | '/admin/security'
     | '/admin/suspensions'
     | '/admin/vendors'
+    | '/marketplace/$productId'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -620,10 +734,20 @@ export interface FileRouteTypes {
     | '/parent'
     | '/school'
     | '/vendor'
+    | '/auth/admin/login'
+    | '/auth/parent/login'
+    | '/auth/parent/register'
+    | '/auth/school/login'
+    | '/auth/school/register'
+    | '/auth/vendor/login'
+    | '/auth/vendor/register'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/admin'
+    | '/contact'
+    | '/marketplace'
     | '/parent'
     | '/school'
     | '/vendor'
@@ -638,6 +762,7 @@ export interface FileRouteTypes {
     | '/admin/security'
     | '/admin/suspensions'
     | '/admin/vendors'
+    | '/marketplace/$productId'
     | '/parent/addresses'
     | '/parent/assistant'
     | '/parent/budget'
@@ -677,14 +802,31 @@ export interface FileRouteTypes {
     | '/parent/'
     | '/school/'
     | '/vendor/'
+    | '/auth/admin/login'
+    | '/auth/parent/login'
+    | '/auth/parent/register'
+    | '/auth/school/login'
+    | '/auth/school/register'
+    | '/auth/vendor/login'
+    | '/auth/vendor/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AdminRoute: typeof AdminRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  MarketplaceRoute: typeof MarketplaceRouteWithChildren
   ParentRoute: typeof ParentRouteWithChildren
   SchoolRoute: typeof SchoolRouteWithChildren
   VendorRoute: typeof VendorRouteWithChildren
+  AuthAdminLoginRoute: typeof AuthAdminLoginRoute
+  AuthParentLoginRoute: typeof AuthParentLoginRoute
+  AuthParentRegisterRoute: typeof AuthParentRegisterRoute
+  AuthSchoolLoginRoute: typeof AuthSchoolLoginRoute
+  AuthSchoolRegisterRoute: typeof AuthSchoolRegisterRoute
+  AuthVendorLoginRoute: typeof AuthVendorLoginRoute
+  AuthVendorRegisterRoute: typeof AuthVendorRegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -710,11 +852,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin': {
       id: '/admin'
       path: '/admin'
       fullPath: '/admin'
       preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -997,6 +1160,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParentAddressesRouteImport
       parentRoute: typeof ParentRoute
     }
+    '/marketplace/$productId': {
+      id: '/marketplace/$productId'
+      path: '/$productId'
+      fullPath: '/marketplace/$productId'
+      preLoaderRoute: typeof MarketplaceProductIdRouteImport
+      parentRoute: typeof MarketplaceRoute
+    }
     '/admin/vendors': {
       id: '/admin/vendors'
       path: '/vendors'
@@ -1074,6 +1244,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminApprovalsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/auth/vendor/register': {
+      id: '/auth/vendor/register'
+      path: '/auth/vendor/register'
+      fullPath: '/auth/vendor/register'
+      preLoaderRoute: typeof AuthVendorRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/vendor/login': {
+      id: '/auth/vendor/login'
+      path: '/auth/vendor/login'
+      fullPath: '/auth/vendor/login'
+      preLoaderRoute: typeof AuthVendorLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/school/register': {
+      id: '/auth/school/register'
+      path: '/auth/school/register'
+      fullPath: '/auth/school/register'
+      preLoaderRoute: typeof AuthSchoolRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/school/login': {
+      id: '/auth/school/login'
+      path: '/auth/school/login'
+      fullPath: '/auth/school/login'
+      preLoaderRoute: typeof AuthSchoolLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/parent/register': {
+      id: '/auth/parent/register'
+      path: '/auth/parent/register'
+      fullPath: '/auth/parent/register'
+      preLoaderRoute: typeof AuthParentRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/parent/login': {
+      id: '/auth/parent/login'
+      path: '/auth/parent/login'
+      fullPath: '/auth/parent/login'
+      preLoaderRoute: typeof AuthParentLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/admin/login': {
+      id: '/auth/admin/login'
+      path: '/auth/admin/login'
+      fullPath: '/auth/admin/login'
+      preLoaderRoute: typeof AuthAdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1108,6 +1327,18 @@ const AdminRouteChildren: AdminRouteChildren = {
 }
 
 const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface MarketplaceRouteChildren {
+  MarketplaceProductIdRoute: typeof MarketplaceProductIdRoute
+}
+
+const MarketplaceRouteChildren: MarketplaceRouteChildren = {
+  MarketplaceProductIdRoute: MarketplaceProductIdRoute,
+}
+
+const MarketplaceRouteWithChildren = MarketplaceRoute._addFileChildren(
+  MarketplaceRouteChildren,
+)
 
 interface ParentRouteChildren {
   ParentAddressesRoute: typeof ParentAddressesRoute
@@ -1214,10 +1445,20 @@ const VendorRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AdminRoute: AdminRouteWithChildren,
+  ContactRoute: ContactRoute,
+  MarketplaceRoute: MarketplaceRouteWithChildren,
   ParentRoute: ParentRouteWithChildren,
   SchoolRoute: SchoolRouteWithChildren,
   VendorRoute: VendorRouteWithChildren,
+  AuthAdminLoginRoute: AuthAdminLoginRoute,
+  AuthParentLoginRoute: AuthParentLoginRoute,
+  AuthParentRegisterRoute: AuthParentRegisterRoute,
+  AuthSchoolLoginRoute: AuthSchoolLoginRoute,
+  AuthSchoolRegisterRoute: AuthSchoolRegisterRoute,
+  AuthVendorLoginRoute: AuthVendorLoginRoute,
+  AuthVendorRegisterRoute: AuthVendorRegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

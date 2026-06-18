@@ -56,7 +56,7 @@ function ProductDetail() {
               <img src={p.gallery[active]} alt={p.name} className="aspect-square w-full object-cover" />
             </div>
             <div className="flex gap-2 overflow-x-auto">
-              {p.gallery.map((g, i) => (
+              {p.gallery.map((g: string, i: number) => (
                 <button
                   key={i}
                   onClick={() => setActive(i)}
