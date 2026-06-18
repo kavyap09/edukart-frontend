@@ -1,16 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Bot, Sparkles, Check, ShoppingCart } from "lucide-react";
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { PageHeader, PanelCard } from "@/components/dashboard/page-shell";
 
 export const Route = createFileRoute("/parent/assistant")({
   head: () => ({ meta: [{ title: "AI School Kit Generator — EduKart" }] }),
-  component: () => (
-    <DashboardLayout role="parent">
-      <KitGenerator />
-    </DashboardLayout>
-  ),
+  component: KitGenerator,
 });
 
 const SCHOOLS = [
