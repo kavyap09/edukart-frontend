@@ -49,12 +49,10 @@ export const ROLE_CONFIG: Record<Role, RoleConfig> = {
     items: [
       { to: "/parent", label: "Dashboard", icon: LayoutDashboard },
       { to: "/parent/products", label: "Browse Products", icon: ShoppingBag },
-      { to: "/parent/assistant", label: "AI Kit Generator", icon: Bot },
       { to: "/parent/wishlist", label: "Wishlist", icon: Heart },
       { to: "/parent/cart", label: "Cart", icon: ShoppingCart },
       { to: "/parent/checkout", label: "Checkout", icon: CreditCard },
-      { to: "/parent/orders", label: "Orders & Tracking", icon: Truck },
-      { to: "/parent/addresses", label: "Saved Addresses", icon: MapPin },
+      { to: "/parent/orders", label: "Orders", icon: Truck },
       { to: "/parent/invoices", label: "Invoices", icon: FileText },
     ],
   },

@@ -1,45 +1,69 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShoppingBag, Heart } from "lucide-react";
-import { PageHeader, PanelCard, Pill } from "@/components/dashboard/page-shell";
+import { useMemo, useState } from "react";
+import { ShoppingBag, Search, Loader2 } from "lucide-react";
+import { PageHeader, PanelCard } from "@/components/dashboard/page-shell";
+import { ProductCard } from "@/components/ProductCard";
+import { useProducts, CATEGORIES } from "@/lib/api";
 
 export const Route = createFileRoute("/parent/products")({ component: Page });
 
-const cats = ["All", "Books", "Uniforms", "Bags", "Stationery", "Shoes", "Lab Kits"];
-const products = Array.from({ length: 9 }, (_, i) => ({
-  name: ["Maths Workbook", "Sketch Set", "PE Shoes", "Lab Goggles", "Notebook Pack", "Water Bottle", "School Bag", "Hindi Reader", "Crayons 24"][i],
-  vendor: ["Sunrise", "Studyo", "Footzy", "Aastha", "Studyo", "Brightline", "Footzy", "Aastha", "Studyo"][i],
-  price: [220, 350, 1290, 480, 180, 290, 1390, 160, 130][i],
-  tag: ["Best Seller", "AI Pick", "New", "Lab", "Bundle", "Eco", "Trending", "School Approved", "Kid Fav"][i],
-}));
-
 function Page() {
+  const { data: products = [], isLoading } = useProducts();
+  const [cat, setCat] = useState("All");
+  const [q, setQ] = useState("");
+
+  const list = useMemo(() => {
+    let arr = products;
+    if (cat !== "All") arr = arr.filter((p) => p.category === cat);
+    if (q.trim()) {
+      const s = q.toLowerCase();
+      arr = arr.filter((p) => p.name.toLowerCase().includes(s) || p.vendor.toLowerCase().includes(s));
+    }
+    return arr;
+  }, [cat, q, products]);
+
   return (
     <div className="space-y-6">
-      <PageHeader title="Browse Products" description="Across 240+ verified vendors" icon={ShoppingBag} />
+      <PageHeader title="Browse Products" description="Live catalog from verified vendors" icon={ShoppingBag} />
       <PanelCard>
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <div className="relative flex min-w-[220px] flex-1 items-center">
+            <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Search products…"
+              className="w-full rounded-full border border-border/60 bg-white/80 py-2.5 pl-9 pr-4 text-sm outline-none focus:shadow-md"
+            />
+          </div>
+        </div>
         <div className="mb-4 flex flex-wrap gap-2">
-          {cats.map((c, i) => (
-            <button key={c} className={`rounded-full px-4 py-1.5 text-xs font-bold transition ${i===0?"bg-foreground text-background":"border border-border bg-white/70 hover:bg-muted"}`}>{c}</button>
+          {CATEGORIES.map((c) => (
+            <button
+              key={c}
+              onClick={() => setCat(c)}
+              className={`rounded-full px-4 py-1.5 text-xs font-bold transition ${
+                cat === c
+                  ? "bg-foreground text-background"
+                  : "border border-border bg-white/70 hover:bg-muted"
+              }`}
+            >
+              {c}
+            </button>
           ))}
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((p) => (
-            <div key={p.name} className="hover-lift overflow-hidden rounded-3xl border border-border/60 bg-white/70">
-              <div className="relative h-36 [background:var(--gradient-sky)]">
-                <Pill tone="sunny"><span className="ml-2">{p.tag}</span></Pill>
-                <button className="absolute right-3 top-3 rounded-full bg-white/80 p-2 hover:scale-110"><Heart className="h-4 w-4" /></button>
-              </div>
-              <div className="p-4">
-                <div className="text-sm font-bold">{p.name}</div>
-                <div className="text-[11px] text-muted-foreground">by {p.vendor}</div>
-                <div className="mt-2 flex items-center justify-between">
-                  <div className="font-display text-lg font-bold">₹{p.price}</div>
-                  <button className="rounded-full bg-foreground px-3 py-1.5 text-xs font-bold text-background hover:scale-105">Add</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+
+        {isLoading ? (
+          <div className="flex justify-center py-12">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+          </div>
+        ) : list.length === 0 ? (
+          <p className="py-12 text-center text-sm text-muted-foreground">No products match your filters.</p>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {list.map((p) => <ProductCard key={p.id} p={p} />)}
+          </div>
+        )}
       </PanelCard>
     </div>
   );
