@@ -46,6 +46,7 @@ import { Route as SchoolBooklistsRouteImport } from './routes/school.booklists'
 import { Route as ParentWishlistRouteImport } from './routes/parent.wishlist'
 import { Route as ParentSchoolsRouteImport } from './routes/parent.schools'
 import { Route as ParentProductsRouteImport } from './routes/parent.products'
+import { Route as ParentPaymentRouteImport } from './routes/parent.payment'
 import { Route as ParentOrdersRouteImport } from './routes/parent.orders'
 import { Route as ParentNotificationsRouteImport } from './routes/parent.notifications'
 import { Route as ParentKitRouteImport } from './routes/parent.kit'
@@ -68,6 +69,7 @@ import { Route as AdminParentsRouteImport } from './routes/admin.parents'
 import { Route as AdminOrdersRouteImport } from './routes/admin.orders'
 import { Route as AdminCategoriesRouteImport } from './routes/admin.categories'
 import { Route as AdminApprovalsRouteImport } from './routes/admin.approvals'
+import { Route as ParentInvoiceOrderIdRouteImport } from './routes/parent.invoice.$orderId'
 import { Route as AuthVendorRegisterRouteImport } from './routes/auth.vendor.register'
 import { Route as AuthVendorLoginRouteImport } from './routes/auth.vendor.login'
 import { Route as AuthSchoolRegisterRouteImport } from './routes/auth.school.register'
@@ -261,6 +263,11 @@ const ParentProductsRoute = ParentProductsRouteImport.update({
   path: '/products',
   getParentRoute: () => ParentRoute,
 } as any)
+const ParentPaymentRoute = ParentPaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => ParentRoute,
+} as any)
 const ParentOrdersRoute = ParentOrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
@@ -371,6 +378,11 @@ const AdminApprovalsRoute = AdminApprovalsRouteImport.update({
   path: '/approvals',
   getParentRoute: () => AdminRoute,
 } as any)
+const ParentInvoiceOrderIdRoute = ParentInvoiceOrderIdRouteImport.update({
+  id: '/invoice/$orderId',
+  path: '/invoice/$orderId',
+  getParentRoute: () => ParentRoute,
+} as any)
 const AuthVendorRegisterRoute = AuthVendorRegisterRouteImport.update({
   id: '/auth/vendor/register',
   path: '/auth/vendor/register',
@@ -438,6 +450,7 @@ export interface FileRoutesByFullPath {
   '/parent/kit': typeof ParentKitRoute
   '/parent/notifications': typeof ParentNotificationsRoute
   '/parent/orders': typeof ParentOrdersRoute
+  '/parent/payment': typeof ParentPaymentRoute
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
@@ -474,6 +487,7 @@ export interface FileRoutesByFullPath {
   '/auth/school/register': typeof AuthSchoolRegisterRoute
   '/auth/vendor/login': typeof AuthVendorLoginRoute
   '/auth/vendor/register': typeof AuthVendorRegisterRoute
+  '/parent/invoice/$orderId': typeof ParentInvoiceOrderIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -502,6 +516,7 @@ export interface FileRoutesByTo {
   '/parent/kit': typeof ParentKitRoute
   '/parent/notifications': typeof ParentNotificationsRoute
   '/parent/orders': typeof ParentOrdersRoute
+  '/parent/payment': typeof ParentPaymentRoute
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
@@ -538,6 +553,7 @@ export interface FileRoutesByTo {
   '/auth/school/register': typeof AuthSchoolRegisterRoute
   '/auth/vendor/login': typeof AuthVendorLoginRoute
   '/auth/vendor/register': typeof AuthVendorRegisterRoute
+  '/parent/invoice/$orderId': typeof ParentInvoiceOrderIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -571,6 +587,7 @@ export interface FileRoutesById {
   '/parent/kit': typeof ParentKitRoute
   '/parent/notifications': typeof ParentNotificationsRoute
   '/parent/orders': typeof ParentOrdersRoute
+  '/parent/payment': typeof ParentPaymentRoute
   '/parent/products': typeof ParentProductsRoute
   '/parent/schools': typeof ParentSchoolsRoute
   '/parent/wishlist': typeof ParentWishlistRoute
@@ -607,6 +624,7 @@ export interface FileRoutesById {
   '/auth/school/register': typeof AuthSchoolRegisterRoute
   '/auth/vendor/login': typeof AuthVendorLoginRoute
   '/auth/vendor/register': typeof AuthVendorRegisterRoute
+  '/parent/invoice/$orderId': typeof ParentInvoiceOrderIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -641,6 +659,7 @@ export interface FileRouteTypes {
     | '/parent/kit'
     | '/parent/notifications'
     | '/parent/orders'
+    | '/parent/payment'
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
@@ -677,6 +696,7 @@ export interface FileRouteTypes {
     | '/auth/school/register'
     | '/auth/vendor/login'
     | '/auth/vendor/register'
+    | '/parent/invoice/$orderId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -705,6 +725,7 @@ export interface FileRouteTypes {
     | '/parent/kit'
     | '/parent/notifications'
     | '/parent/orders'
+    | '/parent/payment'
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
@@ -741,6 +762,7 @@ export interface FileRouteTypes {
     | '/auth/school/register'
     | '/auth/vendor/login'
     | '/auth/vendor/register'
+    | '/parent/invoice/$orderId'
   id:
     | '__root__'
     | '/'
@@ -773,6 +795,7 @@ export interface FileRouteTypes {
     | '/parent/kit'
     | '/parent/notifications'
     | '/parent/orders'
+    | '/parent/payment'
     | '/parent/products'
     | '/parent/schools'
     | '/parent/wishlist'
@@ -809,6 +832,7 @@ export interface FileRouteTypes {
     | '/auth/school/register'
     | '/auth/vendor/login'
     | '/auth/vendor/register'
+    | '/parent/invoice/$orderId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1090,6 +1114,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParentProductsRouteImport
       parentRoute: typeof ParentRoute
     }
+    '/parent/payment': {
+      id: '/parent/payment'
+      path: '/payment'
+      fullPath: '/parent/payment'
+      preLoaderRoute: typeof ParentPaymentRouteImport
+      parentRoute: typeof ParentRoute
+    }
     '/parent/orders': {
       id: '/parent/orders'
       path: '/orders'
@@ -1244,6 +1275,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminApprovalsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/parent/invoice/$orderId': {
+      id: '/parent/invoice/$orderId'
+      path: '/invoice/$orderId'
+      fullPath: '/parent/invoice/$orderId'
+      preLoaderRoute: typeof ParentInvoiceOrderIdRouteImport
+      parentRoute: typeof ParentRoute
+    }
     '/auth/vendor/register': {
       id: '/auth/vendor/register'
       path: '/auth/vendor/register'
@@ -1351,10 +1389,12 @@ interface ParentRouteChildren {
   ParentKitRoute: typeof ParentKitRoute
   ParentNotificationsRoute: typeof ParentNotificationsRoute
   ParentOrdersRoute: typeof ParentOrdersRoute
+  ParentPaymentRoute: typeof ParentPaymentRoute
   ParentProductsRoute: typeof ParentProductsRoute
   ParentSchoolsRoute: typeof ParentSchoolsRoute
   ParentWishlistRoute: typeof ParentWishlistRoute
   ParentIndexRoute: typeof ParentIndexRoute
+  ParentInvoiceOrderIdRoute: typeof ParentInvoiceOrderIdRoute
 }
 
 const ParentRouteChildren: ParentRouteChildren = {
@@ -1368,10 +1408,12 @@ const ParentRouteChildren: ParentRouteChildren = {
   ParentKitRoute: ParentKitRoute,
   ParentNotificationsRoute: ParentNotificationsRoute,
   ParentOrdersRoute: ParentOrdersRoute,
+  ParentPaymentRoute: ParentPaymentRoute,
   ParentProductsRoute: ParentProductsRoute,
   ParentSchoolsRoute: ParentSchoolsRoute,
   ParentWishlistRoute: ParentWishlistRoute,
   ParentIndexRoute: ParentIndexRoute,
+  ParentInvoiceOrderIdRoute: ParentInvoiceOrderIdRoute,
 }
 
 const ParentRouteWithChildren =
