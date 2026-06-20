@@ -1,7 +1,8 @@
-import { Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Search, Bell, ArrowLeft } from "lucide-react";
+import { Link, Outlet, useRouterState, useNavigate } from "@tanstack/react-router";
+import { Menu, X, Search, Bell, ArrowLeft, LogOut } from "lucide-react";
 import { useState } from "react";
 import { ROLE_CONFIG, type Role } from "./nav-config";
+import { useAuth } from "@/lib/auth";
 
 const accentBg: Record<string, string> = {
   sky: "bg-[var(--sky)]",
@@ -20,6 +21,14 @@ export function DashboardLayout({ role }: { role: Role }) {
   const cfg = ROLE_CONFIG[role];
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [open, setOpen] = useState(false);
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const displayName = user?.name || `${role} demo`;
+  const displayInitial = (user?.name?.[0] ?? role[0]).toUpperCase();
+  const handleSignOut = async () => {
+    await signOut();
+    navigate({ to: "/" });
+  };
 
   return (
     <div
@@ -99,10 +108,24 @@ export function DashboardLayout({ role }: { role: Role }) {
 
             <div className="mt-3 rounded-2xl border border-border/60 bg-white/60 p-3">
               <div className="text-[11px] font-semibold text-muted-foreground">Signed in as</div>
-              <div className="text-sm font-bold capitalize">{role} demo</div>
-              <Link to="/" className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-foreground/80 hover:text-foreground">
-                <ArrowLeft className="h-3 w-3" /> Back to site
-              </Link>
+              <div className="truncate text-sm font-bold">{displayName}</div>
+              {user?.email && (
+                <div className="truncate text-[11px] text-muted-foreground">{user.email}</div>
+              )}
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-foreground/80 hover:text-foreground"
+                >
+                  <ArrowLeft className="h-3 w-3" /> Home
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-foreground/80 hover:text-foreground"
+                >
+                  <LogOut className="h-3 w-3" /> Sign out
+                </button>
+              </div>
             </div>
           </div>
         </aside>
@@ -132,9 +155,9 @@ export function DashboardLayout({ role }: { role: Role }) {
               </button>
               <div className="flex items-center gap-2 rounded-full bg-white/70 px-2 py-1 pr-3 shadow-sm">
                 <div className={`flex h-8 w-8 items-center justify-center rounded-full ${accentGrad[cfg.accent]} font-display text-sm font-bold text-white`}>
-                  {role[0].toUpperCase()}
+                  {displayInitial}
                 </div>
-                <span className="text-sm font-semibold capitalize">{role}</span>
+                <span className="text-sm font-semibold">{displayName}</span>
               </div>
             </div>
           </header>

@@ -9,13 +9,13 @@ export const Route = createFileRoute("/auth/admin/login")({
 });
 
 function AdminLogin() {
-  const { signIn } = useAuth();
+  const { signInDemo } = useAuth();
   const navigate = useNavigate();
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const email = String(fd.get("email") || "");
-    signIn({ email, name: email.split("@")[0], role: "admin" });
+    signInDemo({ email, name: email.split("@")[0], role: "admin" });
     navigate({ to: "/admin" });
   }
   return (

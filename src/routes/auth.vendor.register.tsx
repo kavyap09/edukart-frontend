@@ -9,12 +9,12 @@ export const Route = createFileRoute("/auth/vendor/register")({
 });
 
 function VendorRegister() {
-  const { signIn } = useAuth();
+  const { signInDemo } = useAuth();
   const navigate = useNavigate();
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    signIn({
+    signInDemo({
       email: String(fd.get("email") || ""),
       name: String(fd.get("storeName") || "Vendor"),
       role: "vendor",
