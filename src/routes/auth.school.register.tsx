@@ -9,12 +9,12 @@ export const Route = createFileRoute("/auth/school/register")({
 });
 
 function SchoolRegister() {
-  const { signIn } = useAuth();
+  const { signInDemo } = useAuth();
   const navigate = useNavigate();
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    signIn({
+    signInDemo({
       email: String(fd.get("email") || ""),
       name: String(fd.get("schoolName") || "School"),
       role: "school",
